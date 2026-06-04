@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* 레이아웃 폭 토큰(§4.6) */
+@theme {
+  --color-gsn-sidebar: #ffffff;
+  --color-gsn-panel: #ffffff;
+  --color-gsn-canvas: #f1f5f9;
+  --color-gsn-border: #e2e8f0;
+  --color-gsn-accent: #0284c7;
+  --width-gsn-app: 60rem;
+  --width-gsn-sidebar: 18rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.gsn-app {
+  width: 100%;
+  max-width: var(--width-gsn-app);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
+
+/** Google Analytics 4 측정 ID */
+const GA_MEASUREMENT_ID = "G-Q4VQ8SFCLN";
 
 export const metadata: Metadata = {
   title: "LG B2B Navigator",
@@ -17,6 +21,18 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="h-dvh overflow-hidden antialiased text-slate-900">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         {children}
       </body>
     </html>
